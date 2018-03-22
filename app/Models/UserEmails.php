@@ -25,7 +25,7 @@ class UserEmails extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'user_id', 'is_default',
+        'user_id',
     ];
 
 

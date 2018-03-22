@@ -32,4 +32,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\UserEmails');
     }
+
+    public function shares()
+    {
+        return $this->hasMany('App\Models\StockShares\StockShare');
+    }
 }

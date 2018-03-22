@@ -17,4 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/shares', 'StockSharesController@index')->name('shares');
+//Stock Shares Routes
+Route::get('/shares', '\App\Http\Controllers\StockShares\StockSharesController@index')->name('shares');
+Route::get('/sharePurchase', '\App\Http\Controllers\StockShares\StockSharesController@showPurchaseForm');
+Route::post('/sharePurchase', '\App\Http\Controllers\StockShares\StockSharesController@save')->name('sharePurchase');

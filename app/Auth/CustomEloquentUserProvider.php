@@ -123,6 +123,8 @@ class CustomEloquentUserProvider implements UserProvider
             }
         }
 
+        $query->where('is_default', 1);
+
         return $query->first()->user;
     }
 
