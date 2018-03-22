@@ -5,7 +5,6 @@ namespace App\Http\Controllers\StockShares;
 use Auth;
 use App\Http\Controllers\Controller;
 use App\Validators\StockSharesRequestValidator;
-use App\Models\StockShares\StockShare;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 
@@ -74,4 +73,18 @@ class StockSharesController extends Controller
 
         return $this->index();
     }
+
+    /**
+      * Delete a share
+      *
+      * @var Illuminate\Http\Request
+      * @return \Illuminate\View\View
+    **/
+    public function remove(Request $request) : View
+    {
+        $data = $request->all();
+        Auth::user()->user->shares()->find($data['share'])->delete();
+        return $this->index();
+    }
+
 }

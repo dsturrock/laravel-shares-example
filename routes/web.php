@@ -21,3 +21,4 @@ Auth::routes();
 Route::get('/shares', '\App\Http\Controllers\StockShares\StockSharesController@index')->name('shares');
 Route::get('/sharePurchase', '\App\Http\Controllers\StockShares\StockSharesController@showPurchaseForm');
 Route::post('/sharePurchase', '\App\Http\Controllers\StockShares\StockSharesController@save')->name('sharePurchase');
+Route::post('/shares/delete', '\App\Http\Controllers\StockShares\StockSharesController@remove')->name('deleteShare');

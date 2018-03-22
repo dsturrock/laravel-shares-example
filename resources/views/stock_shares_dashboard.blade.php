@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Shares Dashboard</div>
+                <h2 class="panel-heading">Shares Dashboard</div>
 
 
                 <div class="top-right links">
@@ -14,32 +14,37 @@
 
                 <div class="panel-body">
                     @foreach($shares as $share)
-                        <div class="col-md-6 panel panel-default">
-                            <ol>
-                                <li>
-                                    <span>Company Name</span><span>{{$share->company_name}}</span>
-                                </li>
-                                <li>
-                                    <td>Share Instrument Name</td><td>{{$share->share_instrument_name}}</td>
-                                </li>
-                                <li>
-                                    <td>Quantity</td><td>{{$share->quantity}}</td>
-                                </li>
-                                <li>
-                                    <td>Price</td><td>${{$share->price}}</td>
-                                </li>
-                                <li>
-                                    <td>Total Investment</td><td>${{$share->total_investment}}</td>
-                                </li>
-                                <li>
-                                    <td>Certificate Number</td><td>{{$share->certificate_number}}</td>
-                                </li>
-                                <li>
-                                    <td>Transaction Date</td><td>{{date_default_timezone_set("America/New_York")}}{{ date('Y-m-d', strtotime($share->transaction_date))}}</td>
-                                </li>
-                            </ol>
+                        <div class="col-md-6 panel panel-share">
+                            <div class="mid-right">
+                                <form action={{route('deleteShare')}} method="POST">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="share" value ={{$share->id}}></input>
+                                    <button type="submit"><i class="fa fa-trash" /></i>DELETE</button>
+                                </form>
+                            </div>
+                            <div>
+                                <span class="flex-center">Company Name: {{$share->company_name}}</span>
+                                <span class="flex-center">Share Instrument Name: {{$share->share_instrument_name}}</span>
+                            </div>
+                            <div>
+                                <span class="flex-center">Quantity: {{$share->quantity}}</span>
+                            </div>
+                            <div>
+                                <span class="flex-center">Price: ${{(float)$share->price}}</span>
+                            </div>
+                            <div>
+                                <span class="flex-center">Total Investment: ${{(float)$share->total_investment}}</span>
+                            </div>
+                            <div>
+                                <span class="flex-center">Certificate Number: {{$share->certificate_number}}</span>
+                            </div>
+                            <div>
+                                <span class="flex-center">Transaction Date: {{date_default_timezone_set("America/New_York")}}{{ date('Y-m-d', strtotime($share->transaction_date))}}</span>
+                            </div>
                         </div>
                     @endforeach
+
+                    {{$shares->links()}}
 
                 </div>
             </div>

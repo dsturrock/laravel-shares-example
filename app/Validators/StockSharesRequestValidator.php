@@ -30,7 +30,7 @@ class StockSharesRequestValidator extends Validator
             'share_instrument_name' => 'required|string|max:255',
             'quantity' => 'required|integer|min:1',
             'price' => 'required|numeric',
-            'total_investment' =>'required|integer',
+            'total_investment' =>'required|numeric',
             'certificate_number' => 'required|integer'
 		];
 	}
