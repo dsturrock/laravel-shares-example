@@ -13,19 +13,13 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Models\User::class, function (Faker $faker) {
+$factory->define(App\Models\StockShares\StockShare::class, function (Faker $faker) {
     return [
-        'first_name' => $faker->name,
-        'last_name' => $faker->name,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 
-        'remember_token' => str_random(10),
+        'company_name' => $faker->name,
+        'share_instrument_name' => 'A',
+        'quantity' => 1,
+        'price' => 100.0055,
+        'total_investment' => 200,
+        'certificate_number' => 1
     ];
-});
-
-$factory->define(App\Models\UserEmails::class, function (Faker $faker) {
-	return [
-	     'email_address' => $faker->unique()->safeEmail,
-	     'is_default' => 1
-	];
-
 });

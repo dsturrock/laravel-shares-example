@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class UserEmails extends Authenticatable
 {
 
+    protected $primaryKey = "email_address";
 
     protected $table = "users_email_addresses";
 

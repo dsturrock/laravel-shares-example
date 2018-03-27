@@ -16,8 +16,8 @@ class LoginTest extends TestCase
      */
     public function testLogin()
     {
-        $user = factory(UserEmails::class)->make();
-
+        $user = $this->createUser();
+        
         $this->be($user);
         $this->assertAuthenticatedAs($user);
         $response = $this->get('/shares');
