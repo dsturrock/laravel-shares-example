@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class LoginTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Test can view share dashboard
      *
      * @return void
      */
@@ -24,6 +24,17 @@ class LoginTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('Shares Dashboard');
+    }
+
+    /**
+     * Test that auth is required to view the shares dashboard
+     *
+     * @return void
+     */
+    public function testSharesNeedAuth()
+    {
+        $response = $this->get('/shares');
+        $response->assertDontSee("Shares Dashboard");
     }
 
 }

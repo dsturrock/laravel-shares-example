@@ -13,7 +13,7 @@ class GetSharesTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testGetSharesForUser()
     {
 
         $user = $this->createUser();
